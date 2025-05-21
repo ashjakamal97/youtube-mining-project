@@ -13,7 +13,7 @@ import time
 import requests
 
 #%% Declare variables
-api_key='AIzaSyCaA4WPkBemrA-FMb8XJg2b2INR4Ybdbtg'
+api_key='Your API key'
 youtube = build('youtube','v3',developerKey=api_key)
 
 #%% Define a function to search in youtube with a given country code
@@ -26,7 +26,7 @@ def search_channel(search_term):
     response = request.execute()
     return response['items']
 #%% Search terms
-search_term=input('Enter the topic to search YouTube channels:')  #supply chain
+search_term=input('Enter the topic to search YouTube channels:') 
 channel_data=[]
 search_results=search_channel(search_term)
 for item in search_results:
@@ -59,7 +59,7 @@ for channel in channel_data:
     time.sleep(3)
 
 #%% Selected channel(Supply Chain Secrets)
-selected_channel_id = 'UClRh--VCfs3fa0NaoiSIVvg'  
+selected_channel_id = 'Your selected channel ID'  
 
 #%% Function for channel statistics
 def get_channel_stats(youtube, selected_channel_id):
@@ -87,7 +87,7 @@ print(selected_channel_data)
 
 #%% Get the playlist_id for the selected channel
 playlist_id = selected_channel_data.loc[
-    selected_channel_data['Channel_name'].str.strip() == 'Supply Chain Secrets', 
+    selected_channel_data['Channel_name'].str.strip() == 'Selected Channel Name', 
     'playlist_id'
 ].iloc[0]
 #%%Function for getting video Ids
